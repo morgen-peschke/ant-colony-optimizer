@@ -1,0 +1,77 @@
+#!/usr/bin/env gnuplot
+
+set terminal postscript enhanced landscape color dashed lw 1 "Helvetica" 14
+
+set xrange [:281]
+
+set output 'data/part-3.1.ps'
+
+set multiplot
+
+set title "Graph Complexity by Generation"
+
+set lmargin at screen 0.15
+set rmargin at screen 0.90
+set bmargin at screen 0.30
+set tmargin at screen 0.90
+
+unset xtics
+
+set autoscale y
+set ylabel "Number of Edges"
+plot 'data/nodes-and-edges.data' \
+     using 3 with lines          \
+     notitle
+
+unset title
+
+set lmargin at screen 0.15
+set rmargin at screen 0.90
+set bmargin at screen 0.15
+set tmargin at screen 0.30
+
+set ylabel "Number of Nodes"
+set xlabel "Generation"
+
+set yrange [56:64]
+set xtics auto
+set ytics 58, 2, 62
+
+plot 'data/nodes-and-edges.data' \
+     using 2 with lines          \
+     notitle
+
+unset multiplot
+
+set output 'data/part-3.2.ps'
+
+set multiplot
+
+set lmargin at screen 0.15
+set rmargin at screen 0.90
+set bmargin at screen 0.15
+set tmargin at screen 0.90
+
+set title "Total Time Spent by Generation"
+set xlabel "Generation"
+set ylabel "Number of Iterations"
+
+set autoscale y
+
+set xtics nomirror auto
+set ytics nomirror 0, 1000, 6000
+
+plot 'data/colony-scores.data' \
+     using 6 with lines        \
+     notitle
+
+unset title
+unset xlabel
+unset ylabel
+
+set lmargin at screen 0.40
+set bmargin at screen 0.50
+
+plot [:75] 'data/colony-scores.data' \
+     using 6 with lines        \
+     notitle

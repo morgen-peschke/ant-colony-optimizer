@@ -1,0 +1,58 @@
+#!/usr/bin/env gnuplot
+
+set terminal postscript enhanced landscape color dashed lw 1 "Helvetica" 14
+set output 'data/part-5.ps'
+
+set multiplot
+
+set lmargin at screen 0.15
+set rmargin at screen 0.90
+set bmargin at screen 0.30
+set tmargin at screen 0.90
+
+set ytics nomirror 0, 5, 35
+unset xtics
+
+set ylabel "Time Score"
+
+set xrange [0:281]
+
+a = 0
+b = .5
+
+fit_max = 40
+
+datafile   = 'data/colony-scores.data'
+
+set title "Average of top 10% of Time Scores in each generation"
+
+plot datafile using 1:3 with lines notitle
+
+set lmargin at screen 0.40
+set bmargin at screen 0.50
+
+unset title
+unset xlabel
+unset ylabel
+set xtics nomirror 0, 5, (fit_max - 5)
+
+set xrange [0:fit_max]
+
+plot [:fit_max] datafile using 1:3 with lines notitle
+
+set xlabel "Generation"
+
+set tmargin at screen 0.30
+set lmargin at screen 0.15
+set bmargin at screen 0.15
+
+set xrange [0:281]
+set yrange [-0.025:0.3]
+set ytics nomirror 0, 0.1, 0.2
+set xtics auto mirror
+
+plot datafile using 1:3 with lines notitle
+
+unset multiplot
+
+set terminal x11

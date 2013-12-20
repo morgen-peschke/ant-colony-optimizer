@@ -1,0 +1,21 @@
+#!/usr/bin/env gnuplot
+
+set terminal postscript enhanced landscape color dashed lw 1 "Helvetica" 14
+
+set output 'data/part-2.ps'
+
+set lmargin at screen 0.15
+set rmargin at screen 0.90
+set bmargin at screen 0.15
+set tmargin at screen 0.90
+
+set title "Count of runs within 10% of A*"
+
+set xlabel "Generation"
+set ylabel "Run count"
+
+set xrange [:281]
+
+plot 'data/colony-scores.data' \
+     using 5 with lines notitle
+

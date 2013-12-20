@@ -20,8 +20,11 @@ any of the variants.
 
 Dependencies
 ------------
+
 Carp::Always
+
 Data::Dumper
+
 Exporter::Tidy
 
 Usage

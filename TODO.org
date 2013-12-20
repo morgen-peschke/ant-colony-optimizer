@@ -1,0 +1,8 @@
+TODO List for Ant Colony Optimizer
+
+* Must Do
+* Should Do
+  Modify the GeneticOptimizer to read genome metadata from a configuration file.
+* Might Do
+  Go back through the classes an convert hashref based classes to arrayref based
+  classes for the speedup.

@@ -18,6 +18,12 @@ This was also a nice chance to get familiar with the Ant Colony variations and
 create a hybrid meta version that, with the appropriate parameters, can act as
 any of the variants.
 
+Dependencies
+------------
+Carp::Always
+Data::Dumper
+Exporter::Tidy
+
 Usage
 -----
 
